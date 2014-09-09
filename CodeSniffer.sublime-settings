@@ -1,0 +1,18 @@
+{
+	// Config example:
+
+	// Local SVN repository working copy (path in local machine)
+	"local_working_copy": "/home/user/workspace",
+
+	// Remote SVN repository working copy (path in the remote machine)
+    "remote_working_copy": "/srv/workspace",
+
+    // SVN host(IP or domain name)
+    "svn_host": "vm",
+
+    // SVN user
+    "svn_user": "user",
+
+    // SVN repositories
+    "svn_repositories": ["rep1", "rep2"]
+}
