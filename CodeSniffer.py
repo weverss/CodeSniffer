@@ -16,8 +16,8 @@ class CodeSniffer(sublime_plugin.TextCommand):
         self.settings = sublime.load_settings("CodeSniffer.sublime-settings")
         self.local_working_copy = self.settings.get("local_working_copy")
         self.remote_working_copy = self.settings.get("remote_working_copy")
-        self.svn_host = self.settings.get("svn_host")
-        self.svn_user = self.settings.get("svn_user")
+        self.vm_host = self.settings.get("vm_host")
+        self.vm_user = self.settings.get("vm_user")
         self.svn_repositories = self.settings.get("svn_repositories", [])
 
         self.view.window().run_command(
@@ -35,7 +35,7 @@ class CodeSniffer(sublime_plugin.TextCommand):
         for uncommitted_changed_file in uncommitted_changed_files:
             output = subprocess.check_output([
                 "ssh",
-                "%s" % "{0}@{1}".format(self.svn_user, self.svn_host),
+                "%s" % "{0}@{1}".format(self.vm_user, self.vm_host),
                 "code-sniffer.sh " + uncommitted_changed_file
             ])
 
