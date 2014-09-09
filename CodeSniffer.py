@@ -2,6 +2,7 @@ import sublime
 import sublime_plugin
 
 import os
+import re
 import sys
 import subprocess
 import xml.etree.ElementTree as etree
@@ -77,6 +78,6 @@ class CodeSniffer(sublime_plugin.TextCommand):
                 self.remote_working_copy
             )
 
-            files.append(file_path)
+            files.append(re.escape(file_path))
 
         return files
